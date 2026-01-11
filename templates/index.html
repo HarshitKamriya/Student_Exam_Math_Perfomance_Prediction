@@ -1,1 +1,161 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Homepage Container */
+        .home-container {
+            text-align: center;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .home-container h1 {
+            font-size: 2.2rem;
+            color: #2a5298;
+            margin-bottom: 15px;
+        }
+
+        .home-container p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature-card {
+            background: #f7f9fc;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #2a5298;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: #fff;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 🔹 Tablet View */
+        @media (max-width: 768px) {
+            .home-container {
+                padding: 30px 15px;
+            }
+
+            .home-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .home-container p {
+                font-size: 1rem;
+            }
+        }
+
+        /* 🔹 Mobile View */
+        @media (max-width: 480px) {
+            .home-container {
+                padding: 20px 12px;
+            }
+
+            .home-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .home-container p {
+                font-size: 0.95rem;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login home-container">
+        <h1>Student Exam Performance Predictor</h1>
+
+        <p>
+            Welcome to the <strong>Student Exam Performance Indicator</strong>.
+            This AI-powered application predicts a student’s <strong>Maths score</strong> based on academic
+            and socio-economic factors such as parental education, lunch type, test preparation, and previous scores.
+        </p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🎯 Accurate Predictions</h3>
+                <p>Machine learning model trained on real student performance data.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📊 Data-Driven</h3>
+                <p>Uses reading, writing scores and background features for reliable results.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>⚡ Fast & Simple</h3>
+                <p>Just fill the form and instantly get your predicted maths score.</p>
+            </div>
+        </div>
+
+        <a href="{{ url_for('predict_datapoint') }}" class="cta-btn">
+            Start Prediction
+        </a>
+    </div>
+
+</body>
+
+</html>
